@@ -1,22 +1,18 @@
 import React from 'react';
 
-const Comment = () => {
+const Comment = props => {
     return (
-            <div className="comment">
-            <div class="ui cards">
-              <div class="card">
-                <div class="content">
-                  <div class="header">Elliot Fu</div>
-                    <div class="description">
-                      Elliot Fu is a film-maker from New York.
-                    </div>
-                  </div>
-                  <div class="ui bottom attached button">
-                    <i class="add icon"></i>
-                      Add Friend
-                    </div>
-                  </div>
+            <div className="card">
+              <div className="content">
+              <div className="header">{`#${props.comment.id}`}</div>
+                <div className="description">
+                  {props.comment.content}
                 </div>
+              </div>
+              <div className="ui bottom attached button">
+                <i className="assistive listening systems icon"></i>
+                  Escutar
+              </div>
             </div>
             
     );
