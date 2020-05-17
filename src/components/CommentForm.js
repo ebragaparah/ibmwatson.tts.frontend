@@ -1,11 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
+import comments from '../apis/comments';
 
 const CommentForm = () => {
-    const postComment = e => {
+    const [content, setContent] = useState('');
+    
+    const postComment = async e => {
       e.preventDefault();
-
+      const response = await comments.post('/comments', {content: content});
+      console.log(response);
     };
 
+    const onTextChange = e => {
+      setContent(e.target.value);
+    };
     
     return (
         <div className="comment-form ui segment">
@@ -13,7 +20,10 @@ const CommentForm = () => {
           <form className="ui form">
             <div className="field">
               <label>Texto</label>
-              <textarea rows="2"></textarea>
+              <textarea
+                rows="2"
+                onChange={e => onTextChange(e)}>
+              </textarea>
             </div>
             <button
               onClick={e => postComment(e)}
