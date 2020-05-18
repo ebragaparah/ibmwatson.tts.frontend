@@ -15,11 +15,11 @@ const CommentList = () => {
     }, []);
     
     return (
-            <div className="comment-list">
-            <div className="ui cards">
-            {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
-            </div>
-            </div>
+      <div className="comment-list">
+        <div className="ui cards">
+          {comments.map(comment => <Comment key={comment.id} comment={comment} />)}
+        </div>
+      </div>
     );
 };
 

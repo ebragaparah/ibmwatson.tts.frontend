@@ -1,13 +1,20 @@
-import React, {useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import './Comment.css';
+import commentsApi from '../apis/comments';
 
 const Comment = props => {
   const audioElement = useRef(null);
+  const [audioURL, setAudioURL] = useState('');
 
   const onAudioPlay = () => {
-    audioElement.current.play();
+  commentsApi.get(`/comments/${props.comment.id}`)
+    .then(() => {
+      setAudioURL(`http://localhost:8000/${props.comment.id}.mp3`);
+      audioElement.current.play();
+    })
+    .catch(err => console.log('Something went wrong in the audio file creation'));
   };
-    
+
   return (
     <div className="card">
       <div className="content">
@@ -22,7 +29,7 @@ const Comment = props => {
             className="audio"
             controls=""
             type="audio/mpeg"
-            src={`http://localhost:8000/${props.comment.id}.mp3`}
+            src={audioURL}
             ref={audioElement}>
             Your browser does not support the audio element.
           </audio>
