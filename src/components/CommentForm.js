@@ -7,6 +7,7 @@ const CommentForm = () => {
     const postComment = async e => {
       e.preventDefault();
       const response = await comments.post('/comments', {content: content});
+      setContent('');
       console.log(response);
     };
 
@@ -21,6 +22,7 @@ const CommentForm = () => {
             <div className="field">
               <label>Texto</label>
               <textarea
+                value={content}
                 rows="2"
                 onChange={e => onTextChange(e)}>
               </textarea>
