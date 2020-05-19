@@ -17,7 +17,7 @@ const App = () => {
     fetchComments();
   }, []);
 
-  const onSubmit = comment => setComments([...comments, comment]);
+    const onSubmit = comment => setComments([...comments, comment]);
   
   return (
     <div className="ui container app">
