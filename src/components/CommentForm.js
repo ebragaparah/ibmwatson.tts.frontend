@@ -17,7 +17,7 @@ const CommentForm = props => {
     
     return (
     <div className="comment-form ui segment">
-      <h1 className="ui header">Adicionar comentário</h1>    
+      <h1 className="ui header">Adicionar comentário</h1>
       <form className="ui form">
         <div className="field">
           <label>Texto</label>

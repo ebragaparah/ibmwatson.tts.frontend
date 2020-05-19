@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import commentsApi from '../apis/comments';
 import CommentForm from './CommentForm';
 import CommentList from './CommentList';
-import './App.css';
+import '../styles/App.css';
 
 const App = () => {
   const [comments, setComments] = useState([]);
