@@ -6,8 +6,9 @@ const CommentForm = props => {
     
     const formSubmit = async e => {
       e.preventDefault();
-      await commentsApi.post('/comments', {content: content});
+      const response = await commentsApi.post('/comments', {content: content});
       setContent('');
+      props.onFormSubmit(response.data);
     };
 
     const onTextChange = e => {
